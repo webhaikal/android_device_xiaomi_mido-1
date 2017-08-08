@@ -17,7 +17,7 @@
 $(call inherit-product, device/xiaomi/mido/full_mido.mk)
 
 # Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/aoscp/config/common_full_phone.mk)
+$(call inherit-product, vendor/aoscp/configs/common_full_phone.mk)
 
 PRODUCT_NAME := aoscp_mido
 BOARD_VENDOR := Xiaomi
