@@ -985,15 +985,26 @@ vendor/lib/libQtiTether.so|6f57fcc71d9e0f717b570b342c70d3d0fc57153a
 vendor/lib64/libconnctrl.so|37ee8792d34cea23d7fd935aa68f9f6b8405828b
 vendor/lib64/libQtiTether.so|5dc8470d4ef042a5044f59da0ae1df3dee1f9b1a
 
-# Perf - from oxygen (MiMax 2)
+# Perf
 bin/energy-awareness|7b7c18125dcb175ab12cd0b1ae4c4d52e10d046f
 bin/iop|fbb9383decc611d44dbfc6bd5afd0bb2460d6cc2
+framework/QPerformance.jar
 bin/msm_irqbalance|b5aefbcf0a5b2ad179e9f8798cbd0fdd4a58dbca
 vendor/bin/perfd|2ec0caef258fdec390cd9653e2c700f72e9796cd
-vendor/lib/libqti-iop-client.so|b83b7eda3f5cb9e6b403bf23d33aade6486eacbe
+vendor/etc/public.libraries.txt
+vendor/etc/perf-profile0.conf
+vendor/etc/perf-profile1.conf
+vendor/etc/perf-profile2.conf
+vendor/etc/perf-profile3.conf
+vendor/etc/perf-profile4.conf
+vendor/etc/perf-profile5.conf
+vendor/etc/perf-profile6.conf
 vendor/lib/libqti-perfd-client.so|006a867d373b58152f5ad5ebd86956957c85dfff
-vendor/lib64/libqti-iop-client.so|e73a2b57c6c865f15fc8608151400273df77898b
+vendor/lib/libqti-iop-client.so|b83b7eda3f5cb9e6b403bf23d33aade6486eacbe
+vendor/lib/libqti_performance.so
 vendor/lib64/libqti-perfd-client.so|5d48393cf976825f7e12b772c19880fe964d7212
+vendor/lib64/libqti-iop-client.so|e73a2b57c6c865f15fc8608151400273df77898b
+vendor/lib64/libqti_performance.so
 
 # Peripheral manager - from oxygen (MiMax 2)
 bin/pm-proxy|4322e7c36c5d91c2b47a711b449f27a31703a96c
@@ -1154,3 +1165,4 @@ vendor/lib/mediadrm/libwvdrmengine.so|70419ce1f8eb6bd3aa36234f8d7e8003569efc9c
 
 # Wi-Fi - from oxygen (MiMax 2)
 bin/wcnss_service|7e4c45e60ab32a383c02737a99772ad1251c9171
+
