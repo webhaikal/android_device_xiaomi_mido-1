@@ -1,4 +1,3 @@
-
 service perfd /system/vendor/bin/perfd
     class main
     user root

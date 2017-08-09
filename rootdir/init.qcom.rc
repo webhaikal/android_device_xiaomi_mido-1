@@ -26,7 +26,9 @@
 #
 
 import init.qcom.usb.rc
+import init.msm.usb.configfs.rc
 import init.target.rc
+import init.qcom.factory.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
@@ -332,9 +334,8 @@ on post-fs-data
     mkdir /data/misc/SelfHost/Running/ 2750 system shell
     mkdir /data/misc/SelfHost/socket/ 2770 system system
 
-    #Create PERFD deamon related dirs
-    mkdir /data/system/perfd 0770 root system
-    chmod 2770 /data/system/perfd
+    # Create PERFD deamon related dirs
+    mkdir /data/system/perfd 2770 root system
     rm /data/system/perfd/default_values
     start perfd
 
@@ -385,17 +386,6 @@ on post-fs-data
     #WAPI
     mkdir /data/misc/wapi_certificate 0770 system wifi
 
-<<<<<<< HEAD
-service perfd /system/vendor/bin/perfd
-   class main
-   user root
-   group root readproc
-   disabled
-   socket perfd seqpacket 0666 root system
-   writepid /dev/cpuset/system-background/tasks
-
-=======
->>>>>>> 769585c... mido: Fix & enable perfd since it's required by Qualcomm Boost Framework
 service iop /system/bin/iop
     class main
     user root
@@ -407,37 +397,11 @@ service iop /system/bin/iop
 on property:hw.fm.init=*
     write /sys/module/radio_iris_transport/parameters/fmsmd_set ${hw.fm.init}
 
-<<<<<<< HEAD
-=======
-on property:persist.sys.ssr.enable_debug=*
-    write /sys/module/subsystem_restart/parameters/enable_debug ${persist.sys.ssr.enable_debug}
-
-on property:persist.sys.mba_boot_timeout=*
-    write /sys/module/pil_msa/parameters/pbl_mba_boot_timeout_ms ${persist.sys.mba_boot_timeout}
-
-on property:persist.sys.modem_auth_timeout=*
-    write /sys/module/pil_msa/parameters/modem_auth_timeout_ms ${persist.sys.modem_auth_timeout}
-
-on property:persist.sys.pil_proxy_timeout=*
-    write /sys/module/peripheral_loader/parameters/proxy_timeout_ms ${persist.sys.pil_proxy_timeout}
-
-on property:persist.sys.ssr.restart_level=*
-    start ssr_setup
-
-on property:persist.sys.ssr.enable_ramdumps=1
-    write /sys/module/subsystem_restart/parameters/enable_ramdumps 1
-    mkdir /data/ramdump 770 system system
-    start ss_ramdump
-
-on property:persist.sys.ssr.enable_ramdumps=0
-    write /sys/module/subsystem_restart/parameters/enable_ramdumps 0
-
 # Create PERFD deamon related dirs
     mkdir /data/system/perfd 2770 root system
     rm /data/system/perfd/default_values
     start perfd
 
->>>>>>> 769585c... mido: Fix & enable perfd since it's required by Qualcomm Boost Framework
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed "
     #Reset read ahead for dm-0 and dm-1 to 512kb
@@ -690,3 +654,4 @@ on property:vold.decrypt=trigger_restart_min_framework
 
 on property:vold.decrypt=trigger_restart_framework
     restart time_daemon
+
